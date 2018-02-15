@@ -4,14 +4,6 @@ import com.recreations.model.City;
 
 import java.util.List;
 
-public interface CityService {
-    List<City> getAll();
+public interface CityService extends BaseService <City, Integer> {
 
-    City get(int cityId);
-
-    void add(City newCity);
-
-    int remove(City city);
-
-    void update(City city);
 }

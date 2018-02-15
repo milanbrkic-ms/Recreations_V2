@@ -19,7 +19,7 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public Person get(int personID) {
+    public Person get(Integer personID) {
         return personRepository.findOne(personID);
     }
 
@@ -29,7 +29,7 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public int remove(Person person) {
+    public Integer remove(Person person) {
         personRepository.delete(person);
         return person.getIdOsoba();
     }

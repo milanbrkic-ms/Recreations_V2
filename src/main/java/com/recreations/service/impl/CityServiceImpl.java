@@ -20,7 +20,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City get(int cityId) {
+    public City get(Integer cityId) {
         return cityRepository.findOne(cityId);
     }
 
@@ -30,7 +30,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public int remove(City city) {
+    public Integer remove(City city) {
         cityRepository.delete(city);
         return city.getPtt();
     }
