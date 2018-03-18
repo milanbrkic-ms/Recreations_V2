@@ -13,10 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- *
- * @author Milan
- */
+/** @author Milan */
 @Entity
 @Getter
 @NoArgsConstructor
@@ -24,109 +21,109 @@ import java.time.LocalDate;
 @DiscriminatorColumn(name = "tip")
 @DiscriminatorValue("N/A")
 public class Person implements Serializable {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idosoba")
-    protected int idOsoba;
-    
-    protected String ime;
-    protected String prezime;
-    @Column(name = "datumrodjenja")
-    @NotNull
-    protected LocalDate datumRodjenja;
-    protected char pol;
-    protected double height;
-    protected double weight;
-    protected double rating;
-    protected double stamina;
-    
-    @ManyToOne
-    @JoinColumn(name = "mesto")
-    protected City city;
 
-    public Person(int idOsoba) {
-        this.idOsoba = idOsoba;
-    }
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "idosoba")
+  protected int idOsoba;
 
-    public Person(String ime, String prezime, LocalDate datumRodjenja, char pol, City city) {
-        this.ime = ime;
-        this.prezime = prezime;
-        this.datumRodjenja = datumRodjenja;
-        this.pol = pol;
-        this.city = city;
-    }
+  protected String ime;
+  protected String prezime;
 
-    public void setIdOsoba(int idOsoba) {
-        this.idOsoba = idOsoba;
-    }
+  @Column(name = "datumrodjenja")
+  @NotNull
+  protected LocalDate datumRodjenja;
 
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
+  protected char pol;
+  protected double height;
+  protected double weight;
+  protected double rating;
+  protected double stamina;
 
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
+  @ManyToOne
+  @JoinColumn(name = "mesto")
+  protected City city;
 
-    public void setDatumRodjenja(LocalDate datumRodjenja) {
-        this.datumRodjenja = datumRodjenja;
-    }
+  public Person(int idOsoba) {
+    this.idOsoba = idOsoba;
+  }
 
-    public void setPol(char pol) {
-        this.pol = pol;
-    }
+  public Person(String ime, String prezime, LocalDate datumRodjenja, char pol, City city) {
+    this.ime = ime;
+    this.prezime = prezime;
+    this.datumRodjenja = datumRodjenja;
+    this.pol = pol;
+    this.city = city;
+  }
 
-    public void setCity(City city) {
-        this.city = city;
-    }
+  public void setIdOsoba(int idOsoba) {
+    this.idOsoba = idOsoba;
+  }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
+  public void setIme(String ime) {
+    this.ime = ime;
+  }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+  public void setPrezime(String prezime) {
+    this.prezime = prezime;
+  }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
+  public void setDatumRodjenja(LocalDate datumRodjenja) {
+    this.datumRodjenja = datumRodjenja;
+  }
 
-    public void setStamina(double stamina) {
-        this.stamina = stamina;
-    }
+  public void setPol(char pol) {
+    this.pol = pol;
+  }
 
-   
-    @Override
-    public String toString() {
-        return ""+ idOsoba;
-    }
+  public void setCity(City city) {
+    this.city = city;
+  }
 
-    public String getName(){
-        return this.ime + " " + this.prezime;
-    }
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + this.idOsoba;
-        return hash;
-    }
+  public void setHeight(double height) {
+    this.height = height;
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Person other = (Person) obj;
-        return this.idOsoba == other.idOsoba;
+  public void setWeight(double weight) {
+    this.weight = weight;
+  }
+
+  public void setRating(double rating) {
+    this.rating = rating;
+  }
+
+  public void setStamina(double stamina) {
+    this.stamina = stamina;
+  }
+
+  @Override
+  public String toString() {
+    return "" + idOsoba;
+  }
+
+  public String getName() {
+    return this.ime + " " + this.prezime;
+  }
+
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 67 * hash + this.idOsoba;
+    return hash;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
     }
-    
-    
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Person other = (Person) obj;
+    return this.idOsoba == other.idOsoba;
+  }
 }

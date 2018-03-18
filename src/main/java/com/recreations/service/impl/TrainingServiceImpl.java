@@ -1,8 +1,8 @@
 package com.recreations.service.impl;
 
-import com.recreations.model.Sport;
-import com.recreations.repository.SportDAO;
-import com.recreations.service.SportService;
+import com.recreations.model.Training;
+import com.recreations.repository.TrainingDAO;
+import com.recreations.service.TrainingService;
 import com.recreations.service.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,32 +11,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SportServiceImpl implements SportService {
-  @Autowired private SportDAO repository;
+public class TrainingServiceImpl implements TrainingService {
+  @Autowired private TrainingDAO repository;
 
   @Override
-  public List<Sport> getAll() {
+  public List<Training> getAll() {
     return repository.findAll();
   }
 
   @Override
-  public Sport get(Integer id)  {
+  public Training get(Integer id)  {
     return Optional.ofNullable(repository.findOne(id)).orElseThrow(EntityNotFoundException::new);
   }
 
   @Override
-  public Sport add(Sport newObject) {
+  public Training add(Training newObject) {
     return repository.save(newObject);
   }
 
   @Override
-  public Integer remove(Sport obj) {
+  public Integer remove(Training obj) {
     repository.delete(obj);
-    return obj.getSportID();
+    return obj.getTreningId();
   }
 
   @Override
-  public void update(Sport obj) {
+  public void update(Training obj) {
     repository.saveAndFlush(obj);
   }
 }

@@ -7,77 +7,82 @@ package com.recreations.model;
 
 import lombok.Getter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-/**
- *
- * @author Milan
- */
+/** @author Milan */
 @Entity
 @Getter
 @DiscriminatorValue("C")
 public class Member extends Person implements Serializable {
-    @Column(name = "imeroditelja")
-    private String imeRoditelja;
+  @Column(name = "imeroditelja")
+  private String imeRoditelja;
 
-    @Column(name = "godinaupisa")
-    private int godinaUpisa;
-    
-    @Transient
-    private boolean promenjen = false;
-    
-    public Member() {
-    }
+  @Column(name = "godinaupisa")
+  private int godinaUpisa;
 
-    public Member(String ime, String prezime, LocalDate datumRodjenja, char pol, City city) {
-        super(ime, prezime, datumRodjenja, pol, city);
-    }
+  @Transient private boolean promenjen = false;
 
-    public Member(String imeRoditelja, int godinaUpisa, String ime, String prezime, LocalDate datumRodjenja, char pol, City city) {
-        super(ime, prezime, datumRodjenja, pol, city);
-        this.imeRoditelja = imeRoditelja;
-        this.godinaUpisa = godinaUpisa;
-    }
+  public Member() {}
 
-    public boolean isPromenjen() {
-        return promenjen;
-    }
+  public Member(String ime, String prezime, LocalDate datumRodjenja, char pol, City city) {
+    super(ime, prezime, datumRodjenja, pol, city);
+  }
 
-    public void setPromenjen(boolean promenjen) {
-        this.promenjen = promenjen;
-    }
+  public Member(
+      String imeRoditelja,
+      int godinaUpisa,
+      String ime,
+      String prezime,
+      LocalDate datumRodjenja,
+      char pol,
+      City city) {
+    super(ime, prezime, datumRodjenja, pol, city);
+    this.imeRoditelja = imeRoditelja;
+    this.godinaUpisa = godinaUpisa;
+  }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
+  public boolean isPromenjen() {
+    return promenjen;
+  }
 
-    public void setImeRoditelja(String imeRoditelja) {
-        this.imeRoditelja = imeRoditelja;
-    }
+  public void setPromenjen(boolean promenjen) {
+    this.promenjen = promenjen;
+  }
 
-    public void setGodinaUpisa(int godinaUpisa) {
-        this.godinaUpisa = godinaUpisa;
-    }
+  @Override
+  public String toString() {
+    return super.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.idOsoba;
-        return hash;
-    }
+  public void setImeRoditelja(String imeRoditelja) {
+    this.imeRoditelja = imeRoditelja;
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        return super.equals(obj);
+  public void setGodinaUpisa(int godinaUpisa) {
+    this.godinaUpisa = godinaUpisa;
+  }
+
+  @Override
+  public int hashCode() {
+    int hash = 5;
+    hash = 97 * hash + this.idOsoba;
+    return hash;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+
+    if (this == obj) {
+      return true;
     }
+    if (obj == null) {
+      return false;
+    }
+    return super.equals(obj);
+  }
 }
