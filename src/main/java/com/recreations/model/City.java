@@ -7,67 +7,62 @@ package com.recreations.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- *
- * @author Milan
- */
+/** @author Milan */
 @Entity
 @Getter
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class City implements Serializable {
-    @Id
-    private int ptt;
-    @Column(name = "nazivmesta")
-    private String name;
+  @Id private int ptt;
 
-    public City() {
-    }
+  @Column(name = "nazivmesta")
+  private String name;
 
-    public City(int ptt) {
-        this.ptt = ptt;
-    }
+  public City() {}
 
-    public void setPtt(int ptt) {
-        this.ptt = ptt;
-    }
+  public City(int ptt) {
+    this.ptt = ptt;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setPtt(int ptt) {
+    this.ptt = ptt;
+  }
 
-    @Override
-    public String toString() {
-        return this.name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.ptt;
-        return hash;
-    }
+  @Override
+  public String toString() {
+    return this.name;
+  }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final City other = (City) obj;
-        return this.ptt == other.ptt;
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 59 * hash + this.ptt;
+    return hash;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
     }
-    
-    
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final City other = (City) obj;
+    return this.ptt == other.ptt;
+  }
 }
