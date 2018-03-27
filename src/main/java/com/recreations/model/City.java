@@ -7,6 +7,7 @@ package com.recreations.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 /** @author Milan */
 @Entity
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
 public class City implements Serializable {
@@ -24,8 +26,6 @@ public class City implements Serializable {
 
   @Column(name = "nazivmesta")
   private String name;
-
-  public City() {}
 
   public City(int ptt) {
     this.ptt = ptt;
