@@ -12,10 +12,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
+import lombok.Setter;
 
 /** @author Milan */
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tip")
@@ -33,7 +35,8 @@ public class Person implements Serializable {
   @Column(name = "datumrodjenja")
   @NotNull
   protected LocalDate datumRodjenja;
-
+  @Column(name = "profileimage")
+  protected String profileImage;
   protected char pol;
   protected double height;
   protected double weight;
@@ -54,46 +57,6 @@ public class Person implements Serializable {
     this.datumRodjenja = datumRodjenja;
     this.pol = pol;
     this.city = city;
-  }
-
-  public void setIdOsoba(int idOsoba) {
-    this.idOsoba = idOsoba;
-  }
-
-  public void setIme(String ime) {
-    this.ime = ime;
-  }
-
-  public void setPrezime(String prezime) {
-    this.prezime = prezime;
-  }
-
-  public void setDatumRodjenja(LocalDate datumRodjenja) {
-    this.datumRodjenja = datumRodjenja;
-  }
-
-  public void setPol(char pol) {
-    this.pol = pol;
-  }
-
-  public void setCity(City city) {
-    this.city = city;
-  }
-
-  public void setHeight(double height) {
-    this.height = height;
-  }
-
-  public void setWeight(double weight) {
-    this.weight = weight;
-  }
-
-  public void setRating(double rating) {
-    this.rating = rating;
-  }
-
-  public void setStamina(double stamina) {
-    this.stamina = stamina;
   }
 
   @Override

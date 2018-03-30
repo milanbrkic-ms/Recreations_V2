@@ -1,7 +1,5 @@
 package com.recreations.service;
 
-import com.recreations.service.exception.EntityNotFoundException;
-
 import java.util.List;
 
 public interface BaseService<T, K> {
