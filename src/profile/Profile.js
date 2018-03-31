@@ -5,6 +5,7 @@ import Avatar from 'material-ui/Avatar';
 import fetch from 'node-fetch';
 import * as config from '.././config';
 import * as endpoint from '../datasource/endpoint';
+import './style/profile.styl';
 
 export default class Profile extends React.Component {
 	constructor(props) {

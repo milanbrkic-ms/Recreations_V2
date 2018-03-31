@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
@@ -37,3 +38,5 @@ export default class Home extends React.Component {
 		);
 	}
 }
+const wrapper = document.getElementById("create-article-form");
+wrapper ? ReactDOM.render(<Home />, wrapper) : false;
