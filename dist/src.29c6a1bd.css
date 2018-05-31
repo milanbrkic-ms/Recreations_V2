@@ -1,0 +1,10 @@
+.cities-list {
+  background-color: #2f4f4f;
+  color: #fff;
+}
+.navigation {
+  display: flex;
+}
+.navigation .title {
+  flex: 1;
+}
