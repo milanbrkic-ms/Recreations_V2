@@ -1,0 +1,13 @@
+{
+    "sport": {
+        "base": "/sport",
+        "getAll": "",
+        "get": "/",
+        "add": "/"
+    },
+    "city": {
+        "base": "/city",
+        "getAll": "/all",
+        "get": "/"
+    }
+}
