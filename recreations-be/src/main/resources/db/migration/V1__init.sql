@@ -307,6 +307,7 @@ CREATE TABLE `training` (
   `vremeDo` time NOT NULL,
   `datum` date NOT NULL,
   `sport` int(11) DEFAULT NULL,
+  `nazivTreninga` varchar(50) default null,
   PRIMARY KEY (`treningId`),
   KEY `sport` (`sport`),
   CONSTRAINT `training_ibfk_1` FOREIGN KEY (`sport`) REFERENCES `sport` (`sportID`)
@@ -405,27 +406,6 @@ insert  into `user`(`username`,`password`,`osoba`) values
 ('k8','ad92f08ef4556eaafaf89532bd4d6a3acc394f388981f2ccaf40b8884166022a',1064),
 ('k9','9bc26f746f0ff27e02818af270c4bd69bfeb26d67ef9f3bb9425cb9611bddd50',1065),
 ('milan@yahoo.com','eeb9bb390f1a97e53f21be06110582faa6925a04fc33cfa7c15d8dd37a3d82d7',1050);
-
-/*Table structure for table `user_info` */
-
-DROP TABLE IF EXISTS `user_info`;
-
-CREATE TABLE `user_info` (
-  `user_id` int(10) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `mobile` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `address1` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-/*Data for the table `user_info` */
-
-insert  into `user_info`(`user_id`,`first_name`,`last_name`,`email`,`password`,`mobile`,`address1`) values 
-(1,'Aleksandar','Devic','vicde@gmail.com','e10adc3949ba59abbe56e057f20f883e','0644560426','Cara Dusana 17'),
-(2,'Aleksandar','Devic','email@gmail.com','827ccb0eea8a706c4c34a16891f84e7b','1234567890','123');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -20,8 +20,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "tip")
-@DiscriminatorValue("N/A")
+@DiscriminatorColumn(name = "tip", discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("C")
 public class Person implements Serializable {
 
   @Id
