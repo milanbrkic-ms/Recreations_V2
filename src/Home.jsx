@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -21,11 +18,9 @@ export default class Home extends React.Component {
           <div>
             <div className="navigation">
               <AppBar className="navigation" position="static">
-                <Toolbar>
-                    <div>
-                      <Link to="/"><Button variant="raised" color="primary" > Home </Button> </Link>
-                      <Link to="/profile"><Button variant="raised" color="primary" > Profile </Button> </Link>
-                    </div>
+                <Toolbar variant="dense">
+                    <Link to="/"><Button variant="raised" color="primary" > Home </Button> </Link>
+                    <Link to="/profile"><Button variant="raised" color="primary" > Profile </Button> </Link>
                     <Typography variant="title" color="inherit" className="title">
                      Title
                     </Typography>
@@ -46,5 +41,5 @@ export default class Home extends React.Component {
 		);
 	}
 }
-const wrapper = document.getElementById("create-article-form");
-wrapper ? ReactDOM.render(<Home />, wrapper) : false;
+// const wrapper = document.getElementById("create-article-form");
+// wrapper ? ReactDOM.render(<Home />, wrapper) : false;

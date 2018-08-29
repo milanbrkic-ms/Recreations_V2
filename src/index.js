@@ -1,5 +1,7 @@
+import "babel-polyfill";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './Home';
+import Login from './login/Login';
+import Home from "./Home";
 
-ReactDOM.render( < Home / > , document.body);
+ReactDOM.render( <Login /> , document.getElementById('root'));

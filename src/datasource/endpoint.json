@@ -9,5 +9,10 @@
         "base": "/city",
         "getAll": "/all",
         "get": "/"
+    },
+    "person": {
+      "base": "/person",
+      "getAll": "/all",
+      "get": "/"
     }
 }
