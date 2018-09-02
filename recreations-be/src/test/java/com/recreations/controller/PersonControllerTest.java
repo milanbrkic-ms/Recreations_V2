@@ -54,8 +54,8 @@ public class PersonControllerTest {
 
   @Test(expected = EntityNotFoundException.class)
   public void getNotExistingTest() {
-    when(service.get(1)).thenThrow(EntityNotFoundException.class);
+    when(service.get("1")).thenThrow(EntityNotFoundException.class);
 
-    controller.get(1);
+    controller.get("1");
   }
 }

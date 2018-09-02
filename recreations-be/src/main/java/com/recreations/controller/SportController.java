@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sport")
+@CrossOrigin(origins = "http://localhost:2000")
 public class SportController {
 
     @Autowired

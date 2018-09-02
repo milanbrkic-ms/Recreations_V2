@@ -1,5 +1,9 @@
 package com.recreations.service;
 
 import com.recreations.model.Person;
+import com.recreations.model.Training;
 
-public interface PersonService extends BaseService<Person, Integer> {}
+import java.util.List;
+
+public interface PersonService extends BaseService<Person, String> {
+}

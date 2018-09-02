@@ -25,9 +25,8 @@ import lombok.Setter;
 public class Person implements Serializable {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "idosoba")
-  protected int idOsoba;
+  protected String idOsoba;
 
   protected String ime;
   protected String prezime;
@@ -47,7 +46,7 @@ public class Person implements Serializable {
   @JoinColumn(name = "mesto")
   protected City city;
 
-  public Person(int idOsoba) {
+  public Person(String idOsoba) {
     this.idOsoba = idOsoba;
   }
 
@@ -66,13 +65,6 @@ public class Person implements Serializable {
 
   public String getName() {
     return this.ime + " " + this.prezime;
-  }
-
-  @Override
-  public int hashCode() {
-    int hash = 7;
-    hash = 67 * hash + this.idOsoba;
-    return hash;
   }
 
   @Override

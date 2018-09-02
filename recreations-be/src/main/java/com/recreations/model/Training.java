@@ -5,6 +5,7 @@
  */
 package com.recreations.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ import java.util.List;
 @Getter
 public class Training implements Serializable {
 
+  @JsonIgnoreProperties("trainings")
   @ManyToMany(fetch = FetchType.LAZY)
   // @LazyCollection(LazyCollectionOption.FALSE)
   @JoinTable(
@@ -28,6 +30,7 @@ public class Training implements Serializable {
   )
   private List<Member> clanovi;
 
+  @JsonIgnoreProperties("trainings")
   @ManyToMany(fetch = FetchType.LAZY)
   // @LazyCollection(LazyCollectionOption.FALSE)
   @JoinTable(

@@ -1,17 +1,17 @@
 package com.recreations.controller;
 
-import com.recreations.model.Training;
-import com.recreations.service.TrainingService;
+import com.recreations.service.MemberService;
+import com.recreations.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/training")
+@RequestMapping("/member")
 @CrossOrigin(origins = "http://localhost:2000")
-public class TrainingController {
+public class MemberController {
 
-  @Autowired private TrainingService service;
+  @Autowired private MemberService service;
 
   @GetMapping("/all")
   public @ResponseBody Object getAll() {
@@ -19,12 +19,12 @@ public class TrainingController {
   }
 
   @GetMapping("/{id}")
-  public @ResponseBody Object get(@PathVariable int id)  {
+  public @ResponseBody Object get(@PathVariable String id)  {
     return ResponseEntity.ok().body(service.get(id));
   }
 
-  @PostMapping("/add")
-  public @ResponseBody Object add(@RequestBody Training newTraining) {
-    return ResponseEntity.ok().body(service.add(newTraining));
+  @GetMapping("/{id}/trainings")
+  public @ResponseBody Object getTrainigs(@PathVariable String id) {
+    return ResponseEntity.ok().body(service.getTrainings(id));
   }
 }

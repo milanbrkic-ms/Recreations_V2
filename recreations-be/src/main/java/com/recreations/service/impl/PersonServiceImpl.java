@@ -1,6 +1,7 @@
 package com.recreations.service.impl;
 
 import com.recreations.model.Person;
+import com.recreations.model.Training;
 import com.recreations.repository.PersonDAO;
 import com.recreations.service.PersonService;
 import com.recreations.service.exception.EntityNotFoundException;
@@ -20,7 +21,7 @@ public class PersonServiceImpl implements PersonService {
   }
 
   @Override
-  public Person get(Integer personID)  {
+  public Person get(String personID)  {
     return Optional.ofNullable(personRepository.findOne(personID)).orElseThrow(EntityNotFoundException::new);
   }
 
@@ -30,7 +31,7 @@ public class PersonServiceImpl implements PersonService {
   }
 
   @Override
-  public Integer remove(Person person) {
+  public String remove(Person person) {
     personRepository.delete(person);
     return person.getIdOsoba();
   }
@@ -39,4 +40,5 @@ public class PersonServiceImpl implements PersonService {
   public void update(Person person) {
     personRepository.saveAndFlush(person);
   }
+
 }

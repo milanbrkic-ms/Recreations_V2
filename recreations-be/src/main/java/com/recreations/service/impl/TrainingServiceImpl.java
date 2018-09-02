@@ -1,5 +1,6 @@
 package com.recreations.service.impl;
 
+import com.recreations.model.Member;
 import com.recreations.model.Training;
 import com.recreations.repository.TrainingDAO;
 import com.recreations.service.TrainingService;

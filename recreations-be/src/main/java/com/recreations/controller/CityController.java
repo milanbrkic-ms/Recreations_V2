@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/city")
 @RestController
+@CrossOrigin(origins = "http://localhost:2000")
 public class CityController {
 
   @Autowired private CityService service;

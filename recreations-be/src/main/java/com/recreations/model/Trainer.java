@@ -5,12 +5,15 @@
  */
 package com.recreations.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /** @author Milan */
 @Entity
@@ -33,6 +36,11 @@ public class Trainer extends Person implements Serializable {
   @ManyToOne
   @JoinColumn(name = "sportid")
   private Sport sport;
+
+  @ManyToMany(mappedBy = "treneri")
+  @JsonIgnoreProperties("treneri")
+  private List<Training> trainings = new ArrayList<>();
+
 
   public Trainer() {
     super();

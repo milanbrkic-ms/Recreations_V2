@@ -5,14 +5,14 @@
  */
 package com.recreations.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /** @author Milan */
 @Entity
@@ -32,6 +32,10 @@ public class Member extends Person implements Serializable {
   public Member(String ime, String prezime, LocalDate datumRodjenja, char pol, City city) {
     super(ime, prezime, datumRodjenja, pol, city);
   }
+
+  @JsonIgnoreProperties("clanovi")
+  @ManyToMany(mappedBy = "clanovi")
+  private List<Training> trainings = new ArrayList<>();
 
   public Member(
       String imeRoditelja,
@@ -70,7 +74,7 @@ public class Member extends Person implements Serializable {
   @Override
   public int hashCode() {
     int hash = 5;
-    hash = 97 * hash + this.idOsoba;
+    hash = Integer.parseInt(97 * hash + this.idOsoba);
     return hash;
   }
 

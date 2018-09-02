@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/person")
+@CrossOrigin(origins = "http://localhost:2000")
 public class PersonController {
 
   @Autowired private PersonService service;
@@ -17,7 +18,8 @@ public class PersonController {
   }
 
   @GetMapping("/{id}")
-  public @ResponseBody Object get(@PathVariable int id)  {
+  public @ResponseBody Object get(@PathVariable String id)  {
     return ResponseEntity.ok().body(service.get(id));
   }
+
 }
