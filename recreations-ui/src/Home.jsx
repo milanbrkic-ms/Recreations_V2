@@ -31,15 +31,10 @@ export default class Home extends React.Component {
               </AppBar>
             </div>
 
-            <Switch>
-              {/* <Route exact path="/" component={App}/> */}
-              <Route exact path="/profile" component={Profile}/>
-            </Switch>
+
           </div>
         </Router>
       </React.Fragment>
 		);
 	}
 }
-// const wrapper = document.getElementById("create-article-form");
-// wrapper ? ReactDOM.render(<Home />, wrapper) : false;

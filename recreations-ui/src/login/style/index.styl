@@ -6,11 +6,12 @@
     margin-right: 20px
 .login-body
   display: flex
-  margin-top: 5px
+  margin-top: 40px
   .left
     display: flex
     width: 50%
     flex-direction: column
+    transition: all 1s ease-in-out
     img
       margin: 50px 0
       width: 100%
@@ -19,7 +20,20 @@
       top: -100px
       height: 50px
       background-color: white
+    @media only screen and (max-width: 1000px)
+      position: absolute
+      width: 100%
+      opacity: 0.2
+      transition: all 1s ease-in-out
   .divider
-    width: 2px
-    background-color: #303030
+    width: 1px
+    background-color: #3f51b5
     margin: 35px 50px
+    @media only screen and (max-width: 1000px)
+      display: none
+  .sing-up-form
+    display: flex
+    justify-content: space-evenly
+    flex: 1
+    flex-direction: column
+    margin: 150px

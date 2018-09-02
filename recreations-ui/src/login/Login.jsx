@@ -1,66 +1,54 @@
-import React, { Component } from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { TextField, Input, Paper } from '@material-ui/core';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import './style/index.styl';
+import autobind from 'autobind-decorator';
+import React from 'react'
+import { Paper } from '@material-ui/core';
 import loginImage from '../../images/login.jpg';
+import { withAuth } from '@okta/okta-react';
+import RegistrationForm from './RegistrationForm';
+import {Redirect} from 'react-router-dom';
+import './style/index.styl';
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark'
-  }
-});
-export default class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: '',
-      password: ''
-    };
-    this.login = this.login.bind(this);
-    this.change = this.change.bind(this);
-  }
+@autobind
+export default withAuth(
+  class Login extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { authenticated: null };
+      this.checkAuthentication();
+    }
 
-  change(type, value) {
-    this.setState({
-      [type]: value
-    });
-  }
+    async checkAuthentication() {
+      const authenticated = await this.props.auth.isAuthenticated();
+      if (authenticated !== this.state.authenticated) {
+        this.setState({ authenticated });
+      }
+    }
 
-  login() {
-    let {username, password} = this.state;
-    console.log(`Username: ${username} and password: ${password}`);
-  }
+    componentDidUpdate() {
+      this.checkAuthentication();
+    }
 
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <AppBar className="navigation" position="static">
-          <Toolbar variant="dense">
-              <Typography variant="title" color="inherit" className="title">
-                Welcome to Recreations
-              </Typography>
-              <TextField onChange={(e) => this.change('username', e.target.value)} className="input" id="username-input" label="Username" margin="dense"/>
-              <TextField onChange={(e) => this.change('password', e.target.value)} className="input" id="password-input" label="Password" type="password" 
-                autoComplete="current-password" />
-              <Button onClick={this.login} className="login" variant="raised" color="primary" >
-                Login
-              </Button>
-          </Toolbar>
-        </AppBar>
+    renderLogInBody() {
+      return (
+        <React.Fragment>
           <Paper className="login-body">
             <div className="left">
               <img src={loginImage} alt="Login image"/>
               <span className="helper" />
             </div>
             <div className="divider"/>
+            <RegistrationForm />
           </Paper>
-      </MuiThemeProvider>
-    );
+        </React.Fragment>
+      )
+    }
+
+    render() {
+      if (this.state.authenticated === null) return null;
+      return (
+        this.state.authenticated ? 
+        <Redirect to={{pathname: '/profile'}} /> : 
+        this.renderLogInBody()
+      );
+    }
   }
-}
+);

@@ -8,5 +8,9 @@ export default class Service {
   
   getById(endpoint, id) {
     return fetch(config.admin + `/${endpoint}/${id}`).then(entity => entity.json());
-  }  
+  } 
+
+  add(endpoint, obj) {
+    return fetch(`${config.admin}/${endpoint}`, {method: 'POST', body: obj}).then(entity => entity.json());
+  }
 }

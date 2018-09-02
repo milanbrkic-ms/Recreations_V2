@@ -1,3 +1,4 @@
 {
-    "admin": "http://localhost:8080"
+    "admin": "http://localhost:8080",
+    "okta_token": "00XiW-UesO8p4Pa2AmFM19_c_kfA8_l_Yk4QvZ3vqq"
 }
