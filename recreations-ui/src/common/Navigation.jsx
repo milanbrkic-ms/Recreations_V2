@@ -51,7 +51,7 @@ export default withAuth(
           </React.Fragment>
         );
         return (
-          <AppBar className="navigation" position="static">
+          <AppBar className="navigation" position="sticky">
             <Toolbar>
               {authNav}
             </Toolbar>

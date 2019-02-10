@@ -34,9 +34,10 @@ public class MemberServiceImpl implements MemberService {
   }
 
   @Override
-  public String remove(Member person) {
-    personRepository.delete(person);
-    return person.getIdOsoba();
+  public Member remove(String obj) {
+    Member member = get(obj);
+    personRepository.delete(member);
+    return member;
   }
 
   @Override

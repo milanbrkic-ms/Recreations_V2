@@ -25,8 +25,6 @@ public class User implements Serializable {
   @ManyToOne(cascade = CascadeType.ALL)
   private Person person;
 
-  private String role;
-
   public User() {
     person = new Person();
   }
@@ -48,10 +46,6 @@ public class User implements Serializable {
 
   public void setPerson(Person person) {
     this.person = person;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
   }
 
   @Override

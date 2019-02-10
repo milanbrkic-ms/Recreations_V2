@@ -13,4 +13,8 @@ export default class Service {
   add(endpoint, obj) {
     return fetch(`${config.admin}/${endpoint}`, {method: 'POST', body: obj}).then(entity => entity.json());
   }
+
+  getTrainings(endpoint, id) {
+    return fetch(`${config.admin}/${endpoint}/${id}/trainings`).then(trainings => trainings.json());
+  }
 }

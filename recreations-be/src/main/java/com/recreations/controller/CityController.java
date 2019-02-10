@@ -1,5 +1,6 @@
 package com.recreations.controller;
 
+import com.recreations.model.City;
 import com.recreations.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,5 +21,15 @@ public class CityController {
   @GetMapping("/{id}")
   public @ResponseBody Object get(@PathVariable Integer id)  {
     return ResponseEntity.ok().body(service.get(id));
+  }
+
+  @PostMapping("/add")
+  public @ResponseBody Object add(@RequestBody City city) {
+    return ResponseEntity.ok().body(service.add(city));
+  }
+
+  @DeleteMapping("/{id}")
+  public @ResponseBody Object remove(@PathVariable int id) {
+    return ResponseEntity.ok().body(service.remove(id));
   }
 }

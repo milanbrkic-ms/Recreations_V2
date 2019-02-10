@@ -31,9 +31,10 @@ public class TrainingServiceImpl implements TrainingService {
   }
 
   @Override
-  public Integer remove(Training obj) {
+  public Training remove(Integer obj) {
+    Training t = get(obj);
     repository.delete(obj);
-    return obj.getTreningId();
+    return t;
   }
 
   @Override

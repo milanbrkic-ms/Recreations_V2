@@ -11,4 +11,8 @@ export default class PersonService extends Service {
   getPerson(id) {
     return super.getById(ENDPOINT, id);
   }
+
+  getTrainings(id) {
+    return super.getTrainings("member", id);
+  }
 }

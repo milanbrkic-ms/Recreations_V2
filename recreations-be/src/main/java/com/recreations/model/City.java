@@ -20,7 +20,6 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 public class City implements Serializable {
   @Id private int ptt;
 

@@ -30,9 +30,10 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public String remove(User obj) {
+  public User remove(String obj) {
+    User u = get(obj);
     repository.delete(obj);
-    return obj.getUsername();
+    return u;
   }
 
   @Override

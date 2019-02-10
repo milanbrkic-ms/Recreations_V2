@@ -10,7 +10,7 @@ public interface BaseService<T, K> {
 
   T add(T newObject);
 
-  K remove(T obj);
+  T remove(K obj);
 
   void update(T obj);
 }

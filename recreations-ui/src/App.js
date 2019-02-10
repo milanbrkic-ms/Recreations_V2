@@ -5,11 +5,13 @@ import { Route } from 'react-router-dom';
 import { ImplicitCallback, SecureRoute } from '@okta/okta-react';
 import Login from './login/Login';
 import config from './app.config';
+import { CssBaseline } from '@material-ui/core';
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
+        <CssBaseline />
         <Navigation baseUrl={config.url}/>
         <main>
           <Route path="/" exact render={() => <Login baseUrl={config.url} />} />

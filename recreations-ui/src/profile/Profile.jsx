@@ -5,6 +5,7 @@ import ProfileBody from './components/ProfileBody';
 import './style/profile.styl';
 import { withAuth } from '@okta/okta-react';
 import autobind from 'autobind-decorator';
+import ProfileTraining from './components/ProfileTrainings';
 
 @autobind
 export default withAuth(
@@ -18,9 +19,14 @@ export default withAuth(
       this.personService = new PersonService();
     }
 
+    async saveTrainings(trainings) {
+      await this.personService.saveTrainings(trainings);
+    }
+
     async componentDidMount() {
       // retrieve profile
       this.props.auth.getUser().then(user => this.setState({ user }));
+      console.log(this.state.user);
     }
 
     setTab(event, tab) {
@@ -31,9 +37,7 @@ export default withAuth(
       switch (this.state.tab) {
         case 0: {
           return (
-            <div>
-              HOME PAGE
-            </div>
+            <ProfileTraining profileId={this.state.user.sub} />
           );
         }
         case 1: {
@@ -48,7 +52,7 @@ export default withAuth(
       if (!this.state.user) return null;
       return (
         <div className="profile-page">
-          <ProfileNavigation onTabChanged={this.setTab} {...this.state} />
+          <ProfileNavigation saveTrainings={this.saveTrainings} onTabChanged={this.setTab} {...this.state} />
           <ProfileBody>
             {this.renderBody()}
           </ProfileBody>

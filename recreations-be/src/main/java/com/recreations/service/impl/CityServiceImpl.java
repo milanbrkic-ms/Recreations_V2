@@ -31,9 +31,10 @@ public class CityServiceImpl implements CityService {
   }
 
   @Override
-  public Integer remove(City city) {
-    cityRepository.delete(city);
-    return city.getPtt();
+  public City remove(Integer obj) {
+    City deleted = get(obj);
+    cityRepository.delete(obj);
+    return deleted;
   }
 
   @Override

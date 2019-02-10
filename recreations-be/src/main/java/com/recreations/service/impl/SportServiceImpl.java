@@ -30,9 +30,10 @@ public class SportServiceImpl implements SportService {
   }
 
   @Override
-  public Integer remove(Sport obj) {
+  public Sport remove(Integer obj) {
+    Sport s = get(obj);
     repository.delete(obj);
-    return obj.getSportID();
+    return s;
   }
 
   @Override

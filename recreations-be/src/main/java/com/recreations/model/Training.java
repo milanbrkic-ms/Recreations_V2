@@ -58,6 +58,7 @@ public class Training implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int treningId;
 
+  @Column(name = "nazivtreninga")
   private String nazivTreninga;
 
   public Training() {
