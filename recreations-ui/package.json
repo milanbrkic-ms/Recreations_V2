@@ -19,7 +19,7 @@
         "classnames": "^2.2.6",
         "lodash": "^4.17.10",
         "material-ui-next-pickers": "0.0.12",
-        "moment": "^2.22.2",
+        "moment": "^2.29.2",
         "node-fetch": "^2.1.2",
         "react": "^16.4.0",
         "react-dom": "^16.4.0",
